@@ -2,6 +2,7 @@ package com.topicos.miguel.reclamo.Model.Session
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.topicos.miguel.reclamo.Model.User
 
 class MyPreferences(private val context: Context) {
 
@@ -30,9 +31,11 @@ class MyPreferences(private val context: Context) {
         get() = preferences.getString(AVATAR, "")
         set(value) = preferences.edit().putString(AVATAR, value).apply()
 
-    fun createUser(id : String, mail: String){
-        email = mail
-        uid = id
+    fun createUser(user : User){
+        uid = user.UID
+        name = user.Name
+        email = user.Email
+        avatar = user.Avatar
     }
 
 }
