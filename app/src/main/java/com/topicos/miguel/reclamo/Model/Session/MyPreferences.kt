@@ -3,19 +3,24 @@ package com.topicos.miguel.reclamo.Model.Session
 import android.content.Context
 import android.content.SharedPreferences
 
-class MyPreferences(val context: Context) {
+class MyPreferences(private val context: Context) {
 
-    val MODE_PRIVATE = 0
-    val PREFERENCES_APP = "com.topicos.miguel.reclamo"
-    val NAME = "name"
-    val EMAIL = "email"
-    val AVATAR = "avatar"
+    private val MODE_PRIVATE = 0
+    private val PREFERENCES_APP = "com.topicos.miguel.reclamo"
+    private val UID = "userUID"
+    private val NAME = "name"
+    private val EMAIL = "email"
+    private val AVATAR = "avatar"
 
-    val preferences : SharedPreferences = context.getSharedPreferences(PREFERENCES_APP, MODE_PRIVATE)
+    private val preferences : SharedPreferences = context.getSharedPreferences(PREFERENCES_APP, MODE_PRIVATE)
 
     var name : String
         get() = preferences.getString(NAME, "")
         set(value) = preferences.edit().putString(NAME, value).apply()
+
+    var uid : String
+        get() = preferences.getString(UID, "")
+        set(value) = preferences.edit().putString(UID, value).apply()
 
     var email : String
         get() = preferences.getString(EMAIL, "")
@@ -24,5 +29,10 @@ class MyPreferences(val context: Context) {
     var avatar : String
         get() = preferences.getString(AVATAR, "")
         set(value) = preferences.edit().putString(AVATAR, value).apply()
+
+    fun createUser(id : String, mail: String){
+        email = mail
+        uid = id
+    }
 
 }

@@ -1,12 +1,14 @@
 package com.topicos.miguel.reclamo.Control
 
 import android.support.v4.app.FragmentActivity
+import android.widget.Toast
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.topicos.miguel.reclamo.Model.Session.SessionManager
 
 class AuthGoogle(val activity: FragmentActivity){
 
@@ -30,7 +32,8 @@ class AuthGoogle(val activity: FragmentActivity){
     }
 
     private fun registerUser(user : FirebaseUser){
-
+        SessionManager.instance.createUser(user.uid, user.email !!)
+        Toast.makeText(activity, SessionManager.instance.email, Toast.LENGTH_LONG).show()
     }
 
     fun signOut(googleApiClient: GoogleApiClient) {

@@ -13,7 +13,9 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient.OnConnectionFailedListener {
 
-    val RESQUEST_CODE_GOOGLE_SIGN = 1234
+    private val REQUEST_CODE_GOOGLE_SIGN = 1234
+    private val REQUEST_CODE_FACEBOOK_SIGN = 2345
+
     lateinit var googleSignClient: GoogleApiClient
     lateinit var googleSignInOptions: GoogleSignInOptions
     lateinit var authGoogle : AuthGoogle
@@ -29,7 +31,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RESQUEST_CODE_GOOGLE_SIGN){
+        if (requestCode == REQUEST_CODE_GOOGLE_SIGN){
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
             if (result.isSuccess) {
                 // successful -> authenticate with Firebase
@@ -64,7 +66,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient
 
     private fun signGoogle(){
         val intent = Auth.GoogleSignInApi.getSignInIntent(googleSignClient)
-        startActivityForResult(intent, RESQUEST_CODE_GOOGLE_SIGN)
+        startActivityForResult(intent, REQUEST_CODE_GOOGLE_SIGN)
     }
 
     override fun onConnectionFailed(p0: ConnectionResult) {
