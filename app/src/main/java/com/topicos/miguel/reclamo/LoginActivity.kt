@@ -16,7 +16,6 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient.OnConnectionFailedListener {
 
     private val REQUEST_CODE_GOOGLE_SIGN = 1234
-    private val REQUEST_CODE_FACEBOOK_SIGN = 2345
 
     lateinit var googleSignClient: GoogleApiClient
     lateinit var googleSignInOptions: GoogleSignInOptions
@@ -47,8 +46,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient
             } else {
                 // failed -> update UI
             }
-        }else {
-            callbackManager?.onActivityResult(requestCode, resultCode, data)
+        } else {
+            callbackManager!!.onActivityResult(requestCode, resultCode, data)
         }
     }
 
@@ -84,6 +83,5 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient
     }
 
     override fun onConnectionFailed(p0: ConnectionResult) {
-
     }
 }

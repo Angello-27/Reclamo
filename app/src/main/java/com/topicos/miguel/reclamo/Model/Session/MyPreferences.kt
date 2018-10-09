@@ -8,7 +8,7 @@ class MyPreferences(private val context: Context) {
 
     private val MODE_PRIVATE = 0
     private val PREFERENCES_APP = "com.topicos.miguel.reclamo"
-    private val UID = "userUID"
+    private val UID = "UID"
     private val NAME = "name"
     private val EMAIL = "email"
     private val AVATAR = "avatar"

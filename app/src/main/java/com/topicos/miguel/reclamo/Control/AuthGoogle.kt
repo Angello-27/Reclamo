@@ -42,18 +42,4 @@ class AuthGoogle(val activity: FragmentActivity){
         Toast.makeText(activity, user.Name + "  " + user.Email, Toast.LENGTH_LONG).show()
     }
 
-    fun signOut(googleApiClient: GoogleApiClient) {
-        // sign out Firebase
-        auth!!.signOut()
-        // sign out Google
-        Auth.GoogleSignInApi.signOut(googleApiClient).setResultCallback {  }
-    }
-
-    private fun revokeAccess(googleApiClient: GoogleApiClient) {
-        // sign out Firebase
-        auth!!.signOut()
-        // revoke access Google
-        Auth.GoogleSignInApi.revokeAccess(googleApiClient).setResultCallback {  }
-    }
-
 }
