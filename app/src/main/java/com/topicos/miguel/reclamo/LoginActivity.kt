@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.facebook.CallbackManager
-import com.facebook.FacebookSdk
-import com.facebook.appevents.AppEventsLogger
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.ConnectionResult
@@ -30,7 +28,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
         initGoogleOptions()
-        initFacebookOptions()
         google_login.setOnClickListener(this)
         facebook_login.setOnClickListener(this)
         authGoogle = AuthGoogle(this)
@@ -50,7 +47,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient
             } else {
                 // failed -> update UI
             }
-        } else {
+        }else {
             callbackManager?.onActivityResult(requestCode, resultCode, data)
         }
     }
@@ -61,11 +58,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener ,GoogleApiClient
             R.id.google_login -> signGoogle()
             R.id.facebook_login -> signFacebook()
         }
-    }
-
-    private fun initFacebookOptions(){
-        FacebookSdk.sdkInitialize(getApplicationContext())
-        AppEventsLogger.activateApp(this)
     }
 
     private fun initGoogleOptions(){
