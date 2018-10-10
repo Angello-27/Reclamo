@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "462951567844",
+    "firebase_url": "https://topicos-5604e.firebaseio.com",
+    "project_id": "topicos-5604e",
+    "storage_bucket": "topicos-5604e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:462951567844:android:45e66b7a26a56cb0",
+        "android_client_info": {
+          "package_name": "com.topicos.miguel.reclamo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "462951567844-0hhe96mf6u88cmuo7fdb0d5i04gqjvcd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.topicos.miguel.reclamo",
+            "certificate_hash": "98d01f412f2ec677be6e435ee59535c3aa076ebb"
+          }
+        },
+        {
+          "client_id": "462951567844-tnf76amsra5nk2j56mdtqo0hs5rlom8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMABn5oEdrNDJEi9GEpLhvMh3BCrjIsfA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "462951567844-tnf76amsra5nk2j56mdtqo0hs5rlom8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
