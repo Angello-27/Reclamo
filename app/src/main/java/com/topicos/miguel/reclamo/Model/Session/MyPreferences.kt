@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.topicos.miguel.reclamo.Model.User
 
-class MyPreferences(private val context: Context) {
+class MyPreferences(val context: Context) {
 
     private val MODE_PRIVATE = 0
     private val PREFERENCES_APP = "com.topicos.miguel.reclamo"
@@ -12,6 +12,7 @@ class MyPreferences(private val context: Context) {
     private val NAME = "name"
     private val EMAIL = "email"
     private val AVATAR = "avatar"
+    private val LOGIN = "false"
 
     private val preferences : SharedPreferences = context.getSharedPreferences(PREFERENCES_APP, MODE_PRIVATE)
 
@@ -31,11 +32,20 @@ class MyPreferences(private val context: Context) {
         get() = preferences.getString(AVATAR, "")
         set(value) = preferences.edit().putString(AVATAR, value).apply()
 
+    var islogged : Boolean
+        get() = preferences.getBoolean(LOGIN, false)
+        set(value) = preferences.edit().putBoolean(LOGIN, value).apply()
+
     fun createUser(user : User){
         uid = user.UID
         name = user.Name
         email = user.Email
         avatar = user.Avatar
+        islogged = true
+    }
+
+    fun isLogged(): Boolean{
+        return islogged
     }
 
 }
