@@ -9,6 +9,7 @@ import com.topicos.miguel.reclamo.Model.Session.SessionManager
 
 class SplashActivity : AppCompatActivity() {
 
+    private val SPLASH_RUNTIME : Long = 5 * 1000
     private val handler : Handler? = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,6 @@ class SplashActivity : AppCompatActivity() {
             }
             finish()
         }
-        handler!!.postDelayed(runnable, 5000)
+        handler!!.postDelayed(runnable, SPLASH_RUNTIME)
     }
 }
